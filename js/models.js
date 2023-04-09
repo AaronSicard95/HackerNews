@@ -25,7 +25,8 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
-    return "hostname.com";
+    let hostNameNew = url.subString(0, url.indexOf("/"));
+    return hostNameNew;
   }
 }
 
