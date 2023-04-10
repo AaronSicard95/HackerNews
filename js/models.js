@@ -24,8 +24,25 @@ class Story {
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
-    // UNIMPLEMENTED: complete this function!
-    let hostNameNew = url.subString(0, url.indexOf("/"));
+    let monda = this.url;
+    let found = false;
+    let count = 0;
+    let loc = 0;
+    for(let i=0; i<monda.length && found == false;i++){
+      if(monda.charAt(i)=="/"){
+        if(count<2){
+          count++;
+        }else{
+          loc = i;
+          found = true;
+        }
+      }
+    }
+    let hostNameNew
+    if(loc == 0){
+      hostNameNew = monda;
+    } else {
+    hostNameNew = monda.substring(0, loc);}
     return hostNameNew;
   }
 }
@@ -74,8 +91,12 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( /* user, newStory */) {
+  async addStory(user, newStory) {
     // UNIMPLEMENTED: complete this function!
+    let newDate = new Date();
+    let NS = new Story({storyId: 15,...newStory,username: user.name,createdAt: `${newDate.getMonth()+1}/${newDate.getDate()}/${newDate.getFullYear()}`});
+    let postInfo = await axios.post('https://hack-or-snooze-v3.herokuapp.com/stories', {token:user.loginToken, story:{username: user.name,...newStory}})
+    return NS;
   }
 }
 

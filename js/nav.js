@@ -25,6 +25,15 @@ function navLoginClick(evt) {
 
 $navLogin.on("click", navLoginClick);
 
+function submitStoryClick(evt) {
+  console.debug("submitStoryClick", evt);
+  hidePageComponents();
+  $storyForm.show();
+}
+
+$storyButton.on("click", submitStoryClick);
+
+
 /** When a user first logins in, update the navbar to reflect that. */
 
 function updateNavOnLogin() {

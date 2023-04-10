@@ -50,3 +50,23 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+
+async function makeStory(evt) {
+  console.debug("makeStory", evt);
+  evt.preventDefault();
+
+  // grab the username and password
+  const title = $("#story-title").val();
+  const author = $("#story-author").val();
+  const url = $("#story-url").val();
+
+  // User.login retrieves user info from API and returns User instance
+  // which we'll make the globally-available, logged-in user.
+  let newPost = await storyList.addStory(currentUser, {title:title, author:author,url:url});
+  console.log(newPost);
+  hidePageComponents();
+  $allStoriesList.show();
+  getAndShowStoriesOnStart();
+}
+$storyForm.on('submit', makeStory);

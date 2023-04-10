@@ -19,11 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hack or Snooze</title>
-  <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/user.css">
   <link rel="stylesheet" href="css/stories.css">
@@ -38,6 +34,7 @@
     <a class="nav-link" href="#" id="nav-all">Hack or Snooze</a>
   </div>
   <div class="nav-right">
+    <a class="nav-link" href="#" id="story-submit">submit story</a>
     <a class="nav-link" href="#" id="nav-login">login/signup</a>
     <a class="nav-link" href="#" id="nav-user-profile"></a>
     <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
@@ -73,6 +70,23 @@
     <hr>
   </form>
 
+  <form action="#" id="addStory-form" class="account-form hidden" method="post">
+    <h4>Login</h4>
+    <div class="addStory-input">
+      <label for="story-title">Title</label>
+      <input id="story-title" >
+    </div>
+    <div class="addStory-input">
+      <label for="story-author">Author</label>
+      <input id="story-author" >
+    </div>
+    <div class="addStory-input">
+      <label for="story-url">URL</label>
+      <input id="story-url" >
+    </div>
+    <button type="submit">Submit Story</button>
+    <hr>
+  </form>
   <!-- Signup form -->
   <form
       action="#"
