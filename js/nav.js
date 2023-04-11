@@ -33,7 +33,23 @@ function submitStoryClick(evt) {
 
 $storyButton.on("click", submitStoryClick);
 
+function favoritesClick(evt) {
+  console.log("click");
+  console.debug("favoritesClick", evt);
+  hidePageComponents();
+  putFavoritesOnPage();
+}
 
+$favButton.on("click", favoritesClick);
+
+function myStoriesClick(evt) {
+  console.log("click");
+  console.debug("MSClick", evt);
+  hidePageComponents();
+  putMyStoriesOnPage();
+}
+
+$MSButton.on("click", myStoriesClick);
 /** When a user first logins in, update the navbar to reflect that. */
 
 function updateNavOnLogin() {
