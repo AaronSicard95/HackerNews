@@ -93,10 +93,12 @@ class StoryList {
 
   async addStory(user, newStory) {
     // UNIMPLEMENTED: complete this function!
-    let newDate = new Date();
-    let NS = new Story({storyId: 15,...newStory,username: user.name,createdAt: `${newDate.getMonth()+1}/${newDate.getDate()}/${newDate.getFullYear()}`});
     let postInfo = await axios.post('https://hack-or-snooze-v3.herokuapp.com/stories', {token:user.loginToken, story:{username: user.name,...newStory}})
-    return NS;
+    let str = postInfo.data.story;
+    let newStoryD = new Story(str);
+    console.log(newStoryD);
+    storyList.stories.push(newStoryD);
+    return newStoryD;
   }
 }
 

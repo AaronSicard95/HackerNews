@@ -107,6 +107,8 @@ function putMyStoriesOnPage() {
     but = $(`#${story.storyId}-trashB`);
     but.on('click', async function(evt){
       await axios.delete(`https://hack-or-snooze-v3.herokuapp.com/stories/${story.storyId}?token=${currentUser.loginToken}`);
+      let filt = storyList.stories.filter(i=>i.storyId!=story.storyId);
+      storyList.stories = filt;
       $story.remove();
     })
   }
@@ -126,6 +128,7 @@ async function makeStory(evt) {
   // User.login retrieves user info from API and returns User instance
   // which we'll make the globally-available, logged-in user.
   let newPost = await storyList.addStory(currentUser, {title:title, author:author,url:url});
+  console.log(newPost);
   currentUser.ownStories.push(newPost);
   hidePageComponents();
   $allStoriesList.show();
